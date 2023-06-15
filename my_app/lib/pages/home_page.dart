@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     const int days = 30;
@@ -8,7 +10,7 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Welcome Catalog"),
+        title: Text("Catalog App"),
       ),
       body: Center(
         child: Container(
