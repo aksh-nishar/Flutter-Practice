@@ -1,10 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
-
 import 'package:my_app/models/catalog.dart';
 import 'package:my_app/widgets/themes.dart';
 
@@ -48,9 +46,7 @@ class _HomePageState extends State<HomePage> {
               if (CatalogModel.items.isNotEmpty)
                 const CatalogList().expand()
               else
-                const Center(
-                  child: CircularProgressIndicator(),
-                ),
+                const CircularProgressIndicator().centered().expand(),
             ],
           ),
         ),
