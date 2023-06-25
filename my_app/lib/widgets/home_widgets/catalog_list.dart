@@ -64,7 +64,7 @@ class CatalogItem extends StatelessWidget {
                   children: [
                     "\$${catalog.price}".text.xl.bold.make(),
                     SizedBox(
-                      width: 60,
+                      width: 110,
                       height: 40,
                       child: ElevatedButton(
                         onPressed: () {},
@@ -74,7 +74,7 @@ class CatalogItem extends StatelessWidget {
                           shape:
                               MaterialStateProperty.all(const StadiumBorder()),
                         ),
-                        child: "Buy".text.make(),
+                        child: "Add to cart".text.make(),
                       ),
                     ),
                   ],
