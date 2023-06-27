@@ -9,6 +9,7 @@ import 'package:my_app/models/catalog.dart';
 import '../cart/store.dart';
 import '../widgets/home_widgets/catalog_header.dart';
 import '../widgets/home_widgets/catalog_list.dart';
+// import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -18,6 +19,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // final url = "https://api.jsonbin.io/b/604dbddb683e7e079c4eefd3";
+
   @override
   void initState() {
     super.initState();
@@ -26,6 +29,8 @@ class _HomePageState extends State<HomePage> {
 
   loadData() async {
     await Future.delayed(const Duration(seconds: 2));
+    // final response = await http.get(Uri.parse(url));
+    // final catalogJSON = response.body;
     final catalogJSON =
         await rootBundle.loadString("assets/files/catalog.json");
     final decodedData = jsonDecode(catalogJSON);
