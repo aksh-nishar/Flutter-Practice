@@ -10,6 +10,7 @@ class CartModel {
   final List<int> _itemIds = [];
 
   // Get Catalog
+  // ignore: unnecessary_getters_setters
   CatalogModel get catalog => _catalog;
 
   set catalog(CatalogModel newCatalog) {
