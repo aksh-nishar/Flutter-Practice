@@ -2,9 +2,11 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_app/models/cart.dart';
 import 'package:my_app/utils/routes.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:my_app/models/catalog.dart';
+import '../cart/store.dart';
 import '../widgets/home_widgets/catalog_header.dart';
 import '../widgets/home_widgets/catalog_list.dart';
 
@@ -36,15 +38,26 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final _cart = (VxState.store as MyStore).cart;
     return Scaffold(
       backgroundColor: context.canvasColor,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
-        backgroundColor: context.theme.highlightColor,
-        child: const Icon(
-          CupertinoIcons.cart,
-          color: Colors.white,
-        ),
+      floatingActionButton: VxBuilder(
+        mutations: const {AddMutation, RemoveMutation},
+        builder: (BuildContext context, store, status) => FloatingActionButton(
+          onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+          backgroundColor: context.theme.highlightColor,
+          child: const Icon(
+            CupertinoIcons.cart,
+            color: Colors.white,
+          ),
+        ).badge(
+            color: Colors.red,
+            size: 20,
+            count: _cart.items.length,
+            textStyle: const TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            )),
       ),
       body: SafeArea(
         child: Container(
